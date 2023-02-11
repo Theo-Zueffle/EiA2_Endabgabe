@@ -19,7 +19,7 @@
   $collection = $_GET["collection"];
   $id = $_GET["id"];
   $data = json_decode($_GET["data"], true);
- 
+
   $result = array();
   $result["status"] = "success";
 
@@ -118,8 +118,7 @@
     if (filesize($_filename) > 0) 
       $json = readCollection($_filename);
 
-    $id = count($json);
-  
+    $id = uniqid();
     $json[$id] = $_data;
     writeCollection($_filename, $json);
 

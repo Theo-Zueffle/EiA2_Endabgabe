@@ -18,10 +18,8 @@ a{
     text-decoration: none;
     color:white;
 }
-}
-.radioGroup{
 
-}
+
 .radioGroup label{
     display: inline-block;
     padding-left: 5vw;
@@ -55,7 +53,7 @@ span {
   #query {
     width: 40em;
   }
-  #auswahl{
+  #selectedRocket{
 
     width:100%;
     height:10vw;
@@ -65,7 +63,7 @@ span {
    z-index:5;
    
   }
-  .raketen{
+  .rockets{
     color:black;
     font-size: 2vw;
     text-align: center;
@@ -79,7 +77,7 @@ span {
     z-index:6;
     transition: 1s;
   }
-  .raketen:hover{
+  .rockets:hover{
    
     background-color: rgb(0, 132, 255);
     height: 10vw;

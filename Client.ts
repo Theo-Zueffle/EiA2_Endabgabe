@@ -8,7 +8,7 @@
  */
 namespace testMingiDB {
   window.addEventListener("load", start);
-  let database: string = "https://webuser.hs-furtwangen.de/~zuefflet/Database/";
+  let database: string = "https://webuser.hs-furtwangen.de/~muelle1k/Database/";
 console.log(database);
   // check if a MingiDB installation is referred to as the parameter for the client
   async function start(_event: Event): Promise<void> {
@@ -17,7 +17,7 @@ console.log(database);
       
     } catch (_e: unknown) {
       let output: string = `Add the correct address of your database as get-parameter in the url.\n`;
-      output += `https://webuser.hs-furtwangen.de/~zuefflet/Database/\n\n`;
+      output += `https://webuser.hs-furtwangen.de/~muelle1k/Database/\n\n`;
       output += _e;
       output += `\n\nSee more information in the console.`;
       alert(output);
@@ -37,7 +37,7 @@ console.log(database);
 
   // show MingiDB's response in the textarea
   function output(_response: Object): void {
-    document.querySelector("textarea").value = JSON.stringify(_response, null, 2);
+    document.querySelector("textarea")!.value = JSON.stringify(_response, null, 2);
   }
 
   // react to the buttons, build the query and the data accordingly and call send
@@ -47,13 +47,13 @@ console.log(database);
     if (!(_event.target instanceof HTMLButtonElement))
       return;
 
-    let command: string = (<HTMLButtonElement>_event.target).textContent;
+    let command: string | null = (<HTMLButtonElement>_event.target).textContent;
     let formdata: FormData = new FormData(document.forms[0]);
-    let collection: FormDataEntryValue = formdata.get("collection");
-    let id: FormDataEntryValue = formdata.get("id");
+    let collection: FormDataEntryValue | null = formdata.get("collection");
+    let id: FormDataEntryValue | null = formdata.get("id");
     let query: string = `?command=${command}&collection=${collection}`;
     let data: Object = {};
-    ["color", "radius", "form"].forEach(
+    ["color", "radius", "shape"].forEach(
       (_color) => { if (formdata.get(_color)) data[_color] = formdata.get(_color); }
     );
 
@@ -83,8 +83,8 @@ console.log(database);
 
   // for convenience, clear or randomly fill the fields of the document-fieldset when clicking on the anchors
   function hndAnchor(_event: Event): void {
-    let command: string = (<HTMLElement>_event.target).textContent;
-    let fields: string[] = ["color", "radius", "form"];
+    let command: string | null = (<HTMLElement>_event.target).textContent;
+    let fields: string[] = ["color", "radius", "shape"];
     console.log(command);
     switch (command) {
       case "Clear":
@@ -100,7 +100,7 @@ console.log(database);
             case "radius":
               element.value = "10";
               break;
-            case "form":
+            case "shape":
               element.value = Math.random() < 0.5 ? "rect" : "kreis";
               break;
            
