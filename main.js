@@ -1,6 +1,13 @@
 "use strict";
 var Firework;
 (function (Firework) {
+    /*Aufgabe: Endabgabe
+      Name: Theo Bastian Züffle
+      Matrikel: 268027
+      Datum: 12.02.2023
+      Zusammenarbeit: Kristoffer Müller und Liz Hengsteler
+      Quellen: Inverted Classroom, Jirka Videos + Code, W3Schools, Stackoverflow, ChatGPT
+      */
     window.addEventListener("load", handleLoad);
     Firework.emitters = [];
     let selected = 0;
@@ -13,21 +20,21 @@ var Firework;
         console.log(collectionData);
         responsedata = JSON.parse(collectionData);
         responseArray = responsedata.data;
-        //console.log(responseArray['0'].radius);
+        //console.log((responseArray['0'].radius).toString());
         for (let i = responseArray.length - 1; i > responseArray.length - 5; i--) {
             //console.log(responseArray['' + i].radius);
-            let auswahlDiv = document.getElementsByClassName("rockets")[responseArray.length - i - 1];
-            auswahlDiv.setAttribute("id", "" + i);
-            auswahlDiv.addEventListener("click", changeauswahl);
+            let choiceDiv = document.getElementsByClassName("rockets")[responseArray.length - i - 1];
+            choiceDiv.setAttribute("id", "" + i);
+            choiceDiv.addEventListener("click", changeChoice);
         }
         return true;
     }
     // show MingiDB's response in the textarea
-    function changeauswahl(e) {
-        selected = Number(e.target.id);
+    function changeChoice(_choiceClick) {
+        selected = Number(_choiceClick.target.id);
     }
     function handleLoad(_event) {
-        send("https://webuser.hs-furtwangen.de/~muelle1k/Database/?command=find&collection=Fireworks");
+        send("https://webuser.hs-furtwangen.de/~zuefflet/Database/?command=find&collection=Firework");
         let canvas = document.querySelector("canvas");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;

@@ -2,20 +2,14 @@
 var Firework;
 (function (Firework) {
     class Emitter {
-        mouseX;
-        mouseY;
-        lifeParticleSize = Math.random() * 2 + 7;
-        color;
-        radius;
-        shape;
-        turbulenceX = [];
-        turbulenceY = [];
-        forceX = [];
-        forceY = [];
-        random = 5;
-        radius2;
-        particleMax = 40;
         constructor(_mouseX, _mouseY, _color, _radius, _shape) {
+            this.lifeParticleSize = Math.random() * 2 + 7;
+            this.turbulenceX = [];
+            this.turbulenceY = [];
+            this.forceX = [];
+            this.forceY = [];
+            this.random = 5;
+            this.particleMax = 40;
             this.mouseX = _mouseX;
             this.mouseY = _mouseY;
             this.radius = _radius;

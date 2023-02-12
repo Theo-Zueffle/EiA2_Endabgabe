@@ -1,14 +1,11 @@
 namespace Firework {
 
     /*Aufgabe: Endabgabe
-      Name: Liz Hengsteler
-      Matrikel: 268424
+      Name: Theo Bastian Züffle
+      Matrikel: 268027
       Datum: 12.02.2023
-      Zusammenarbeit: Kristoffer Müller und Theo Züffle
-      Quellen: Inverted Classroom, Jirka Videos + Code
-      W3Schools
-      Stackoverflow
-      ChatGPT
+      Zusammenarbeit: Kristoffer Müller und Liz Hengsteler
+      Quellen: Inverted Classroom, Jirka Videos + Code, W3Schools, Stackoverflow, ChatGPT
       */
 
     window.addEventListener("load", handleLoad);
@@ -25,11 +22,10 @@ namespace Firework {
         [key: string]: string;
 
     }
-    interface Collection {
-        fireworkdata: Firework;
-    }
-    let responsedata: any[];
-    let responseArray: Collection[];
+   
+    
+    let responsedata: Firework[];
+    let responseArray: Firework[];
 
     async function send(_query: string): Promise<boolean> {
 
@@ -65,7 +61,7 @@ namespace Firework {
     }
 
     function handleLoad(_event: Event): void {
-        send("https://webuser.hs-furtwangen.de/~muelle1k/Database/?command=find&collection=Fireworks");
+        send("https://webuser.hs-furtwangen.de/~zuefflet/Database/?command=find&collection=Firework");
         let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;

@@ -7,10 +7,10 @@
  * @see www.github.com/JirkaDellOro/MingiDB
  * @license MIT License
  */
-var testMingiDB;
-(function (testMingiDB) {
+var Firework;
+(function (Firework) {
     window.addEventListener("load", start);
-    let database = "https://webuser.hs-furtwangen.de/~muelle1k/Database/";
+    let database = "https://webuser.hs-furtwangen.de/~zuefflet/Database/";
     console.log(database);
     // check if a MingiDB installation is referred to as the parameter for the client
     async function start(_event) {
@@ -19,7 +19,7 @@ var testMingiDB;
         }
         catch (_e) {
             let output = `Add the correct address of your database as get-parameter in the url.\n`;
-            output += `https://webuser.hs-furtwangen.de/~muelle1k/Database/\n\n`;
+            output += `https://webuser.hs-furtwangen.de/~zuefflet/Database/\n\n`;
             output += _e;
             output += `\n\nSee more information in the console.`;
             alert(output);
@@ -74,31 +74,32 @@ var testMingiDB;
         send(query, data);
     }
     // for convenience, clear or randomly fill the fields of the document-fieldset when clicking on the anchors
-    function hndAnchor(_event) {
-        let command = _event.target.textContent;
-        let fields = ["color", "radius", "shape"];
-        console.log(command);
-        switch (command) {
-            case "Clear":
-                fields.forEach((_color) => document.querySelector(`[color=${_color}]`).value = "");
+    /*function hndAnchor(_event: Event): void {
+      let command: string | null = (<HTMLElement>_event.target).textContent;
+      let fields: string[] = ["color", "radius", "shape"];
+      console.log(command);
+      switch (command) {
+        case "Clear":
+          fields.forEach((_color) => (<HTMLInputElement>document.querySelector(`[color=${_color}]`)).value = "");
+          break;
+        case "Fill":
+          fields.forEach((_color) => {
+            let element: HTMLInputElement = (<HTMLInputElement>document.querySelector(`[color=${_color}]`));
+            switch (_color) {
+              case "color":
+                element.value = Math.random() < 0.5 ? "green" : "red";
                 break;
-            case "Fill":
-                fields.forEach((_color) => {
-                    let element = document.querySelector(`[color=${_color}]`);
-                    switch (_color) {
-                        case "color":
-                            element.value = Math.random() < 0.5 ? "green" : "red";
-                            break;
-                        case "radius":
-                            element.value = "10";
-                            break;
-                        case "shape":
-                            element.value = Math.random() < 0.5 ? "rect" : "kreis";
-                            break;
-                    }
-                });
+              case "radius":
+                element.value = "10";
                 break;
-        }
-    }
-})(testMingiDB || (testMingiDB = {}));
+              case "shape":
+                element.value = Math.random() < 0.5 ? "rect" : "kreis";
+                break;
+             
+            }
+          });
+          break;
+      }
+    }*/
+})(Firework || (Firework = {}));
 //# sourceMappingURL=Client.js.map

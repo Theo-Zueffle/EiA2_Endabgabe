@@ -6,9 +6,10 @@
  * @see www.github.com/JirkaDellOro/MingiDB
  * @license MIT License
  */
-namespace testMingiDB {
+
+namespace Firework {
   window.addEventListener("load", start);
-  let database: string = "https://webuser.hs-furtwangen.de/~muelle1k/Database/";
+  let database: string = "https://webuser.hs-furtwangen.de/~zuefflet/Database/";
 console.log(database);
   // check if a MingiDB installation is referred to as the parameter for the client
   async function start(_event: Event): Promise<void> {
@@ -17,7 +18,7 @@ console.log(database);
       
     } catch (_e: unknown) {
       let output: string = `Add the correct address of your database as get-parameter in the url.\n`;
-      output += `https://webuser.hs-furtwangen.de/~muelle1k/Database/\n\n`;
+      output += `https://webuser.hs-furtwangen.de/~zuefflet/Database/\n\n`;
       output += _e;
       output += `\n\nSee more information in the console.`;
       alert(output);
@@ -82,7 +83,7 @@ console.log(database);
   }
 
   // for convenience, clear or randomly fill the fields of the document-fieldset when clicking on the anchors
-  function hndAnchor(_event: Event): void {
+  /*function hndAnchor(_event: Event): void {
     let command: string | null = (<HTMLElement>_event.target).textContent;
     let fields: string[] = ["color", "radius", "shape"];
     console.log(command);
@@ -108,5 +109,5 @@ console.log(database);
         });
         break;
     }
-  }
+  }*/
 }
